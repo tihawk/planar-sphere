@@ -5,6 +5,8 @@
 var express = require('express');
 var app = express();
 
+Info = require("./modules/whoami.js");
+
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
@@ -17,7 +19,7 @@ app.get("/", function (request, response) {
 });
 
 app.get("/api/whoami", function (request, response) {
-  response.send("HALLO WELT");
+  response.send(Info.info);
 });
 
 // listen for requests :)

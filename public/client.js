@@ -15,6 +15,7 @@ $(function() {
 
   $('form').submit(function(event) {
     event.preventDefault();
+    alert(navigator.userAgent);
     window.location.href="/api/whoami";
     /*var dream = $('input').val();
     $.post('/dreams?' + $.param({dream: dream}), function() {
