@@ -16,7 +16,6 @@ $(function() {
     if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
     
     return {
-      "IP Address": ,
       "Language": navigator.language,
       "Operating System": OSName
     };
@@ -26,7 +25,8 @@ $(function() {
     event.preventDefault();
     var info = whoAmI();
     $('#dreams').html('');
-    $.get(('/'), function() {      
+    $.get(('/whoami'), function(res) {   
+      $('#dreams').append("<li>" + "IP Address" + ": " + res + "</li>");
       for(let key in info)
         {
           $('#dreams').append("<li>" + key + ": " + info[key] + "</li>");

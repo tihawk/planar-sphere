@@ -14,7 +14,11 @@ app.use(express.static('public'));
 // http://expressjs.com/en/starter/basic-routing.html
 app.get("/", function (request, response) {
   response.sendFile(__dirname + '/views/index.html');
-  response.
+});
+
+app.get("/whoami", function (req, res) {
+  var ip = req.headers['x-forwarded-for'].slice(0, req.headers['x-forwarded-for'].indexOf(',')) || req.connection.remoteAddress;
+  res.send(ip);
 });
 
 // listen for requests :)
