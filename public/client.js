@@ -16,15 +16,21 @@ $(function() {
     if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
     
     return {
+      "IP Address": java.net.InetAddress.getLocalHost().getHostAddress(),
+      "Language": navigator.language,
       "Operating System": OSName
     };
   };
 
   $('form').submit(function(event) {
     event.preventDefault();
-    var info = 
-    $.get(('/'), function() {
-      alert(whoAmI()[]);
+    var info = whoAmI();
+    $('#dreams').html('');
+    $.get(('/'), function() {      
+      for(let key in info)
+        {
+          $('#dreams').append("<li>" + key + ": " + info[key] + "</li>");
+        }
     });
   });
 
