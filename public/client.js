@@ -7,22 +7,25 @@
 $(function() {
   console.log('hello world :o');
   
-  /*$.get('/dreams', function(dreams) {
-    dreams.forEach(function(dream) {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
-    });
-  });*/
+  function whoAmI(){
+    var OSName="Unknown OS";
+    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+  
+    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+    
+    return {
+      "Operating System": OSName
+    };
+  };
 
   $('form').submit(function(event) {
     event.preventDefault();
-    alert(navigator.userAgent);
-    window.location.href="/api/whoami";
-    /*var dream = $('input').val();
-    $.post('/dreams?' + $.param({dream: dream}), function() {
-      $('<li></li>').text(dream).appendTo('ul#dreams');
-      $('input').val('');
-      $('input').focus();
-    });*/
+    var info = 
+    $.get(('/'), function() {
+      alert(whoAmI()[]);
+    });
   });
 
 });
