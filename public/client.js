@@ -16,7 +16,7 @@ $(function() {
     if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
     
     return {
-      "IP Address": java.net.InetAddress.getLocalHost().getHostAddress(),
+      "IP Address": ,
       "Language": navigator.language,
       "Operating System": OSName
     };
